@@ -4,9 +4,9 @@
   <subtitle>Software Developer</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://pavanc.com/"/>
+  <link href="http://blog.pavanc.com/"/>
   <updated>2016-03-21T15:42:03.136Z</updated>
-  <id>http://pavanc.com/</id>
+  <id>http://blog.pavanc.com/</id>
   
   <author>
     <name>Pavan</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>What&#39;s new in C# 6</title>
-    <link href="http://pavanc.com/2016/03/21/What-s-new-in-C-6/"/>
-    <id>http://pavanc.com/2016/03/21/What-s-new-in-C-6/</id>
+    <link href="http://blog.pavanc.com/2016/03/21/What-s-new-in-C-6/"/>
+    <id>http://blog.pavanc.com/2016/03/21/What-s-new-in-C-6/</id>
     <published>2016-03-21T14:53:21.000Z</published>
     <updated>2016-03-21T15:42:03.136Z</updated>
     
@@ -47,14 +47,14 @@
     </summary>
     
     
-      <category term="C#" scheme="http://pavanc.com/tags/C/"/>
+      <category term="C#" scheme="http://blog.pavanc.com/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://pavanc.com/2016/03/21/hello-world/"/>
-    <id>http://pavanc.com/2016/03/21/hello-world/</id>
+    <link href="http://blog.pavanc.com/2016/03/21/hello-world/"/>
+    <id>http://blog.pavanc.com/2016/03/21/hello-world/</id>
     <published>2016-03-21T11:52:22.685Z</published>
     <updated>2016-03-21T11:52:22.685Z</updated>
     
