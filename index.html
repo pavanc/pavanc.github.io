@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Pavanc.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pavanc.com">
+<meta property="og:url" content="http://pavanc.com/index.html">
+<meta property="og:site_name" content="Pavanc.com">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pavanc.com">
+<meta name="twitter:description">
+  
+    <link rel="alternate" href="/atom.xml" title="Pavanc.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Pavanc.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Software Developer</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://pavanc.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-What-s-new-in-C-6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/21/What-s-new-in-C-6/" class="article-date">
+  <time datetime="2016-03-21T14:53:21.000Z" itemprop="datePublished">2016-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/21/What-s-new-in-C-6/">What&#39;s new in C# 6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Getter-only-auto-properties"><a href="#Getter-only-auto-properties" class="headerlink" title="Getter-only auto-properties"></a>Getter-only auto-properties</h2><p>Auto-properties can now be declared without a setter.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Customer</span><br><span class="line">&#123;</span><br><span class="line">    public string First &#123; get; &#125; = <span class="string">"Jane"</span>;</span><br><span class="line">    public string Last &#123; get; &#125; = <span class="string">"Doe"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Expression-bodies-on-method-like-members"><a href="#Expression-bodies-on-method-like-members" class="headerlink" title="Expression bodies on method-like members"></a>Expression bodies on method-like members</h2><p>Methods as well as user-defined operators and conversions can be given an expression body by use of the “lambda arrow”:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public Point Move(int dx, int dy) =&gt; new Point(x + dx, y + dy);</span><br><span class="line">public static Complex operator +(Complex a, Complex b) =&gt; a.Add(b);</span><br><span class="line">public static implicit operator string(Person p) =&gt; p.First + <span class="string">" "</span> +</span><br></pre></td></tr></table></figure>
+<h2 id="Using-static"><a href="#Using-static" class="headerlink" title="Using static"></a>Using static</h2><p>The feature allows all the accessible static members of a type to be imported, making them available without qualification in subsequent code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">using static System.Console;</span><br><span class="line">using static System.Math;</span><br><span class="line">using static System.DayOfWeek;</span><br><span class="line">class Program</span><br><span class="line">&#123;</span><br><span class="line">    static void <span class="function"><span class="title">Main</span></span>()</span><br><span class="line">    &#123;</span><br><span class="line">        WriteLine(Sqrt(3*3 + 4*4));</span><br><span class="line">        WriteLine(Friday - Monday);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Null-conditional-operators"><a href="#Null-conditional-operators" class="headerlink" title="Null-conditional operators"></a>Null-conditional operators</h2><p>Sometimes code tends to drown a bit in null-checking. The null-conditional operator lets you access members and elements only when the receiver is not-null, providing a null result otherwise:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int? length = customers?.Length; // null <span class="keyword">if</span> customers is null</span><br><span class="line">Customer first = customers?[0];  // null <span class="keyword">if</span> customers is null</span><br></pre></td></tr></table></figure>
+<h2 id="String-interpolation"><a href="#String-interpolation" class="headerlink" title="String interpolation"></a>String interpolation</h2><p>String.Format and its cousins are very versatile and useful, but their use is a little clunky and error prone. Particularly unfortunate is the use of {0} etc. placeholders in the format string, which must line up with arguments supplied separately:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var s = String.Format(<span class="string">"&#123;0&#125; is &#123;1&#125; year&#123;&#123;s&#125;&#125; old"</span>, p.Name, p.Age);</span><br></pre></td></tr></table></figure>
+<h2 id="nameof-expressions"><a href="#nameof-expressions" class="headerlink" title="nameof expressions"></a>nameof expressions</h2><p>Occasionally you need to provide a string that names some program element: when throwing anArgumentNullException you want to name the guilty argument; when raising a PropertyChangedevent you want to name the property that changed, etc.<br>Using string literals for this purpose is simple, but error prone. You may spell it wrong, or a refactoring may leave it stale. nameof expressions are essentially a fancy kind of string literal where the compiler checks that you have something of the given name, and Visual Studio knows what it refers to, so navigation and refactoring will work:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x == null) throw new ArgumentNullException(nameof(x));</span><br></pre></td></tr></table></figure>
+<h2 id="Index-initializers"><a href="#Index-initializers" class="headerlink" title="Index initializers"></a>Index initializers</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Object and collection initializers are useful <span class="keyword">for</span> declaratively initializing fields and properties of objects, or giving a collection an initial <span class="built_in">set</span> of elements. Initializing dictionaries and other objects with indexers is less elegant. We are adding a new syntax to object initializers allowing you to <span class="built_in">set</span> values to keys through any indexer that the new object has:</span><br><span class="line">var numbers = new Dictionary&lt;int, string&gt; &#123;</span><br><span class="line">    [7] = <span class="string">"seven"</span>,</span><br><span class="line">    [9] = <span class="string">"nine"</span>,</span><br><span class="line">    [13] = <span class="string">"thirteen"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Exception-filters"><a href="#Exception-filters" class="headerlink" title="Exception filters"></a>Exception filters</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">VB has them. F<span class="comment"># has them. Now C# has them too. This is what they look like:</span></span><br><span class="line">try &#123; … &#125;</span><br><span class="line">catch (MyException e) when (myfilter(e))</span><br><span class="line">&#123;</span><br><span class="line">    …</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Await-in-catch-and-finally-blocks"><a href="#Await-in-catch-and-finally-blocks" class="headerlink" title="Await in catch and finally blocks"></a>Await in catch and finally blocks</h2><p>In C# 5 we don’t allow the await keyword in catch and finally blocks, because we’d somehow convinced ourselves that it wasn’t possible to implement. Now we’ve figured it out, so apparently it wasn’t impossible after all.<br>This has actually been a significant limitation, and people have had to employ unsightly workarounds to compensate. That is no longer necessary:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Resource res = null;</span><br><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    res = await Resource.OpenAsync(…);       // You could <span class="keyword">do</span> this.</span><br><span class="line">    …</span><br><span class="line">&#125;</span><br><span class="line">catch(ResourceException e)</span><br><span class="line">&#123;</span><br><span class="line">    await Resource.LogAsync(res, e);         // Now you can <span class="keyword">do</span> this …</span><br><span class="line">&#125;</span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (res != null) await res.CloseAsync(); // … and this.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pavanc.com/2016/03/21/What-s-new-in-C-6/" data-id="cim25t4ax0000mkdk0fc2gpkc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/21/hello-world/" class="article-date">
+  <time datetime="2016-03-21T11:52:22.685Z" itemprop="datePublished">2016-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/21/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pavanc.com/2016/03/21/hello-world/" data-id="cim25t4ax0001mkdkr7l5zw8v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C#</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/21/What-s-new-in-C-6/">What&#39;s new in C# 6</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/21/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Pavan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
